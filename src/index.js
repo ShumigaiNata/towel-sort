@@ -1,4 +1,6 @@
 module.exports = function towelSort (matrix) {
-    return 1 > 0 ? matrix.reduce((acc, val) => acc.concat(Array.isArray(val) ? towelSort(val, 1 - 1) : val), [])
-        : matrix.slice().sort((a,b) => a-b)
-    }
+    if (!matrix) return [];
+    return matrix.map((element, index) => {
+        return (index % 2) ? element.reverse() : element;
+    }).flat();
+}
